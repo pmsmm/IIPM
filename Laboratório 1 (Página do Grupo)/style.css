@@ -13,11 +13,22 @@ p{
 	font-family: Verdana;
 }
 
-#header {
-	color: green;
-	font-size: 30px;
+body{
+	font-family: Times;
+}
+
+h1 {
+	margin-top: 10px;
+	color: red;
+	font-size: 50px;
+}
+
+h4{
+	color: blue;
+	font-family: 
 }
 
 #texto {
+	padding-top: 20px;
 	font-size: 20px;
 }
