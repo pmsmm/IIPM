@@ -1,0 +1,26 @@
+#titulo{
+	color: green;
+	font-family: arial, sans-serif;
+	font-size: 50px;
+	text-align: center;
+}
+
+#sub-titulo{
+	color: blue;
+}
+
+#nomes{
+	text-align: center;
+}
+
+img{
+	border-radius: 30%;
+}
+
+#BORA{
+	background-image: url(backg.jpg);
+}
+
+#links{
+
+}
