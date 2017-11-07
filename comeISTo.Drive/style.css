@@ -1,0 +1,49 @@
+th, tr, table{
+  border-style: solid;
+  border-width: 4px;
+  border-color: black;
+  margin: auto;
+  margin-top: 230px;
+  color: white;
+  font-family: arial;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a {
+	color: blue;
+	font-family: arial;
+	text-decoration: none;
+}
+
+a:visited {
+	color: blue;
+}
+
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 190% 130%;
+}
+
+#cab{
+  background-image: url(title.jpg);
+  width: 29%;
+  margin: auto;
+}
+
+#background{
+  background-color: brown;
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Confirmado</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="small.css">
+</head>
+<body>
+	<div id="content">
+		<a href="javascript:history.back()"><img src="back.png"></a>
+	</div>
+	<div style="display: inline-flex;">
+		<h1 id="info" style="font-family: arial;">O seu aluguer foi confirmado por favor aguarde até o seu veículo se encontrar pronto.<br>Tempo Restante Até Veículo Estar Pronto:<span id="time">2:00</span></h1>
+		<img src="right.jpg" id="imagem">
+	</div>
+	<script type="text/javascript">
+		function startTimer(duration, display) {
+		    var start = Date.now(),
+		        diff,
+		        minutes,
+		        seconds;
+		function timer() {
+		        // get the number of seconds that have elapsed since 
+		        // startTimer() was called
+		        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+		        // does the same job as parseInt truncates the float
+		        minutes = (diff / 60) | 0;
+		        seconds = (diff % 60) | 0;
+
+		        minutes = minutes < 10 ? "0" + minutes : minutes;
+		        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+		        display.textContent = minutes + ":" + seconds; 
+
+		        if (diff <= 0) {
+		            // add one second so that the count down starts at the full duration
+		            // example 05:00 not 04:59
+		            start = Date.now() + 1000;
+		        }
+		    };
+		    // we don't want to wait a full second before the timer starts
+		    timer();
+		    setInterval(timer, 1000);
+		}
+
+		window.onload = function () {
+		    var fiveMinutes = 60 * 2,
+		        display = document.querySelector('#time');
+		    startTimer(fiveMinutes, display);
+		};
+	</script>
+	<form action="http://web.tecnico.ulisboa.pt/~ist425918/IIPM/Projeto_de_IIPM/Home/Main.html">
+		<input type="submit" name="home" value="Voltar à Página Inicial" id="home" action="http://web.tecnico.ulisboa.pt/~ist425918/IIPM/Projeto_de_IIPM/Home/Main.html">
+	</form>
+</body>
+</html>

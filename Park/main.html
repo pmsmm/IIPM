@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<title>ComeISTo Drive - Park</title>
+</head>
+<body>
+	<div id="content">
+		<a href="javascript:history.back()"><img src="back.png"></a>
+	</div>
+	<div id="header">
+	    <div id="headerContent">
+			<h1 id="titulos" align="center" style="font-family: arial;">Parking Status</h1>
+	    </div>
+	</div>
+	<div id="sobe">
+		<div id="bloco">
+			<video width="640" height="480" autoplay loop id="video">
+		  		<source src="Surveillance.mp4" type="video/mp4">
+			</video>
+		</div>
+		<div>
+			<h1 id="lugares" style="background: url(title.jpg) no-repeat; font-family: arial;">Lugares Disponíveis: 4</h1>
+			<h1 id="info" style="background: url(title.jpg) no-repeat; font-family: arial;">Taxa de Pagamento Atual: 2,78€</h1>
+			<script type="text/javascript">
+				window.onload = setTimeout(function(){
+					document.getElementById("lugares").innerHTML = "Lugares Disponíveis: 3"
+				}, 44000);
+			</script>
+		</div> 
+	</div>
+</body>
+</html>

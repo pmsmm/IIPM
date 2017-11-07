@@ -1,0 +1,54 @@
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 135%;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}
+
+#header{
+  background: url(title.jpg) center no-repeat;
+  width: 30%;
+  margin: 0 auto;
+ }
+
+#headerContent{
+	margin: 0px auto;
+	max-width: 1250px;
+}
+
+#titulos{
+	color: white;
+	font-family: arial;
+}
+
+#bloco{
+	display: inline-block;
+}
+
+#logos{
+	width: 500px;
+	height: 300px;
+	margin-left: 300px;
+	margin-top: 100px;
+	border-style: dashed;
+	border-width: 7px;
+	border-radius: 15%;
+}
+
+#longo{
+	width: 600px;
+	height: 220px;
+	margin-left: 700px;
+	margin-top: 140px;
+	border-style: dashed;
+	border-width: 7px;
+	border-radius: 15%;
+}

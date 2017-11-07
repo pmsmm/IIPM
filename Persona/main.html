@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personalize O Seu Prato</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	var counter1 = 0;
+	var counter2 = 0;
+	var counter3 = 0;
+	var counter4 = 0;
+	var counter5 = 0;
+	var counter6 = 0;
+	var sep = "";
+	var item = 0;
+	var total_price = 0;
+	var quantidade = 0;
+		function contador1(argument) {
+			if (argument == "soma") {
+				counter1++;
+				return counter1.toString();
+			}
+			else{
+				if (counter1==0) {
+					counter1 = 0;
+					return counter1.toString();
+				}
+				else{
+					counter1--;
+					return counter1.toString();
+				}
+			}
+		}
+		function contador2(argument) {
+			if (argument == "soma") {
+				counter2++;
+				return counter2.toString();
+			}
+			else{
+				if (counter2==0) {
+					counter2 = 0;
+					return counter2.toString();
+				}
+				else{
+					counter2--;
+					return counter2.toString();
+				}
+			}
+		}
+		function contador3(argument) {
+			if (argument == "soma") {
+				counter3++;
+				return counter3.toString();
+			}
+			else{
+				if (counter3==0) {
+					counter3 = 0;
+					return counter3.toString();
+				}
+				else{
+					counter3--;
+					return counter3.toString();
+				}
+			}
+		}
+		function contador4(argument) {
+			if (argument == "soma") {
+				counter4++;
+				return counter4.toString();
+			}
+			else{
+				if (counter4==0) {
+					counter4 = 0;
+					return counter4.toString();
+				}
+				else{
+					counter4--;
+					return counter4.toString();
+				}
+			}
+		}
+		function contador5(argument) {
+			if (argument == "soma") {
+				counter5++;
+				return counter5.toString();
+			}
+			else{
+				if (counter5==0) {
+					counter5 = 0;
+					return counter5.toString();
+				}
+				else{
+					counter5--;
+					return counter5.toString();
+				}
+			}
+		}
+		function contador6(argument) {
+			if (argument == "soma") {
+				counter6++;
+				return counter6.toString();
+			}
+			else{
+				if (counter6==0) {
+					counter6 = 0;
+					return counter6.toString();
+				}
+				else{
+					counter6--;
+					return counter6.toString();
+				}
+			}
+		}
+		function clear() {
+			counter1=0;
+			counter2=0;
+			counter3=0;
+			counter4=0;
+			counter5=0;
+			counter6=0;
+			return true;
+		}
+	</script>
+	<script>
+	var state = "";
+		$(document).ready(function(){
+    		$("des1").click(function(arg){
+    			$(state).hide();
+    			state = "carne";
+    			clear();
+        		$("carne").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des2").click(function(arg){
+    			$(state).hide();
+    			state = "peixe";
+    			clear();
+        		$("peixe").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des3").click(function(arg){
+    			$(state).hide();
+    			state = "acompanhamentos";
+    			clear();
+        		$("acompanhamentos").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des4").click(function(arg){
+    			$(state).hide();
+    			state = "vegetais";
+    			clear();
+        		$("vegetais").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des5").click(function(arg){
+    			$(state).hide();
+    			state = "molhos";
+    			clear();
+        		$("molhos").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des6").click(function(arg){
+    			$(state).hide();
+    			state = "prato";
+    			clear();
+        		$("prato").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des7").click(function(arg){
+    			$(state).hide();
+    			state = "boxy";
+    			clear();
+        		$("boxy").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des8").click(function(arg){
+    			$(state).hide();
+    			state = "boxo";
+    			clear();
+        		$("boxo").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des9").click(function(arg){
+    			if (item == 0) {
+    				alert("Não Adicionou nenhum Ingrediente ao Prato!");
+    				return;
+    			}
+    			var temp = 0;
+    			if (document.cookie === "NaN" || document.cookie === "" || document.cookie === null || !document.cookie) {
+    				var temp = total_price;
+    				document.cookie = temp.toString() + ";expires=Thu, 18 Dec 2020 12:00:00 UTC; path=/";
+    				location.reload();
+    			}
+    			else{
+    				var temp = parseInt(document.cookie) + total_price;
+	    			document.cookie = temp.toString() + ";path=/";
+	    			location.reload();
+    			}
+    		});
+		});
+		$(document).ready(function(){
+    		$("des10").click(function(arg){
+    			state = "prato";
+        		$("boxy").hide();
+        		$("prato").show();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des11").click(function(arg){
+    			location.reload();
+    		});
+		});
+		$(document).ready(function(){
+    		$("des12").click(function(arg){
+    			state = "prato";
+        		$("boxo").hide();
+        		$("prato").show();
+    		});
+		});
+		function add_conta(name, quant, imga, price){
+			if (quant ==0) {
+				alert("Quantidade do Produto Não Pode ser 0!");
+				return;
+			}
+			var id = "conta_elem" + String(item);
+			var txt = $('<elem id="' + id + '"></elem>');
+			txt.prepend($('<img>',{src:imga}));
+			txt.append($('<input readonly="true">').val(name));
+			txt.append($('<input readonly="true">').val(quant));
+			txt.append($('<input readonly="true" id="ppl">').val(price));
+			txt.append($('<img src="remove.png" style="margin-left: 65px;" onclick="javascript:$(this).closest('+id+').remove(); decrease('+parseFloat(price)+','+parseFloat(quant)+')">'));
+			$("conta").append(txt);
+			alert(name + " Adicionado Com Sucesso!");
+			item++;
+			total_price+=parseFloat(quant)*parseFloat(price);
+			quantidade+=parseFloat(quant);
+		}
+		function decrease(price, quantia) {
+			total_price -=price*quantia;
+			quantidade -=quantia;
+		}
+	</script>
+</head>
+<body>
+	<div id="content">
+    	<a href="javascript:history.back()"><img src="back.png"></a>
+  	</div>
+  	<div id="cab">
+    	<h1 style="font-family: arial; text-align: center; color: white; font-family: arial;" id="random">ComeISTo</h1>
+    	<h2 style="font-family: arial; text-align: center; color: white; font-family: arial;" id="random">Personalize o Seu Prato</h2>     
+  	</div>
+  	<div style="display: inline-flex;">
+	  	<div id="categorias">
+	  		<form>
+	  			<des1><input type="button" name="Carne" value="Carne" id="botão" style="margin-top: 50px; margin-left: 40px; font-family: arial; font-size: 20px;"></des1>
+	  		</form>
+	  		<form>
+	  			<des2><input type="button" name="Peixe" value="Peixe" id="botão" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 20px;"></des2>
+	  		</form>
+	  		<form>
+	  			<des3><input type="button" name="Acompanhamentos" value="Acompanhamentos" id="botão" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 18px;"></des3>
+	  		</form>
+	  		<form>
+	  			<des4><input type="button" name="Vegetais" value="Vegetais" id="botão" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 20px;"></des4>
+	  		</form>
+	  		<form>
+	  			<des5><input type="button" name="Molhos" value="Molhos" id="botão" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 20px;"></des5>
+	  		</form>
+	  		<form>
+	  			<des6><input type="button" name="O Seu Prato" value="O Seu Prato" id="botão" style="margin-top: 10px; margin-left: 40px; background-color: white; font-family: arial; font-size: 20px;"></des6>
+	  		</form>
+	  		<form>
+	  			<des7><input type="button" name="Concluir Prato" value="Concluir Prato" id="botão_confirmar" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 20px;"></des7>
+	  		</form>
+	  		<form>
+	  			<des8><input type="button" name="Limpar Prato" value="Limpar Prato" id="botão_limpar" style="margin-top: 10px; margin-left: 40px; font-family: arial; font-size: 20px;"></des7>
+	  		</form>
+	  	</div>
+	  	<div style="margin-left: 50px;" id="caixa">
+	  	<carne style="display: none;">
+			  	<div style="display: inline-flex; margin-left: 250px;">
+					<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="bife_cavalo.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Cavalo</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_costeletas').value = contador1('sub')">
+			  					<input type="text" name="quantity_costeletas" id="quantity_costeletas" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_costeletas').value = contador1('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Cavalo', document.getElementById('quantity_costeletas').value, 'bife_cavalo.jpg', '12,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="bife_vitela.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Vitela</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_gaitada').value = contador2('sub')">
+			  					<input type="text" name="quantity_gaitada" id="quantity_gaitada" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_gaitada').value = contador2('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Vitela', document.getElementById('quantity_gaitada').value, 'bife_vitela.jpg', '10,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="bife_vaca.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Vaca</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_entermeada').value = contador3('sub')">
+			  					<input type="text" name="quantity_entermeada" id="quantity_entermeada" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_entermeada').value = contador3('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Vaca', document.getElementById('quantity_entermeada').value, 'bife_vaca.jpg', '11,50€')"></form>
+			  		</div>
+			  	</div>
+		  	</carne>
+		  	<carne style="display: none;">  		
+		  	<div style="display: inline-flex; margin-left: 250px;">
+		  		<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="bife_peru.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Peru</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_brasileira').value = contador4('sub')">
+		  					<input type="text" name="quantity_brasileira" id="quantity_brasileira" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_brasileira').value = contador4('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Peru', document.getElementById('quantity_brasileira').value, 'bife_peru.jpg', '9,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="bife_porco.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Porco Preto</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_porco').value = contador5('sub')">
+		  					<input type="text" name="quantity_porco" id="quantity_porco" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_porco').value = contador5('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Porco Preto', document.getElementById('quantity_porco').value, 'bife_porco.jpg', '10,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="bife_frango.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Bife de Frango</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('quantity_frango').value = contador6('sub')">
+		  					<input type="text" name="quantity_frango" id="quantity_frango" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('quantity_frango').value = contador6('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Bife de Frango', document.getElementById('quantity_frango').value, 'bife_frango.jpg', '8,50€')"></form>
+		  		</div>
+		  	</div>
+		  	</carne>
+
+
+
+
+
+
+			<peixe style="display: none;">
+			  	<div style="display: inline-flex; margin-left: 250px;">
+					<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="carapaus-grelhados.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Carapau Grelhado</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('carapaus-grelhados').value = contador1('sub')">
+			  					<input type="text" name="carapaus-grelhados" id="carapaus-grelhados" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('carapaus-grelhados').value = contador1('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Carapau Grelhado', document.getElementById('carapaus-grelhados').value, 'carapaus-grelhados.jpg', '15,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="polvo.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Polvo Assado</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Polvo Assado').value = contador2('sub')">
+			  					<input type="text" name="Polvo Assado" id="Polvo Assado" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Polvo Assado').value = contador2('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Polvo Assado', document.getElementById('Polvo Assado').value, 'polvo.jpg', '14,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="salmao.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Salmão Grelhado</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Salmão Grelhado').value = contador3('sub')">
+			  					<input type="text" name="Salmão Grelhado" id="Salmão Grelhado" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Salmão Grelhado').value = contador3('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Salmão Grelhado', document.getElementById('Salmão Grelhado').value, 'salmao.jpg', '13,50€')"></form>
+			  		</div>
+			  	</div>
+		  	</peixe>
+		  	<peixe style="display: none;">  		
+		  	<div style="display: inline-flex; margin-left: 250px;">
+		  		<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="dourada.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Dourada Grelhada</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Dourada Grelhada').value = contador4('sub')">
+		  					<input type="text" name="Dourada Grelhada" id="Dourada Grelhada" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Dourada Grelhada').value = contador4('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Dourada Grelhada', document.getElementById('Dourada Grelhada').value, 'dourada.jpg', '12,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="peixe_espada.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Peixe Espada Preto Grelhado</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Peixe Espada').value = contador5('sub')">
+		  					<input type="text" name="Peixe Espada" id="Peixe Espada" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Peixe Espada').value = contador5('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Peixe Espada Preto', document.getElementById('Peixe Espada').value, 'peixe_espada.jpg', '17,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="sardinha.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Sardinha Grelhada</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Sardinha Grelhada').value = contador6('sub')">
+		  					<input type="text" name="Sardinha Grelhada" id="Sardinha Grelhada" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Sardinha Grelhada').value = contador6('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Sardinha Grelhada', document.getElementById('Sardinha Grelhada').value, 'sardinha.jpg', '14,50€')"></form>
+		  		</div>
+		  	</div>
+		  	</peixe>
+
+
+
+
+
+
+
+			<acompanhamentos style="display: none;">
+			  	<div style="display: inline-flex; margin-left: 250px;">
+					<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="migas.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Migas à Alentejo</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Migas').value = contador1('sub')">
+			  					<input type="text" name="Migas" id="Migas" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Migas').value = contador1('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Migas à Alentejo', document.getElementById('Migas').value, 'migas.jpg', '8,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="preto.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Feijão Preto</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Feijão').value = contador2('sub')">
+			  					<input type="text" name="Feijão" id="Feijão" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Feijão').value = contador2('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Feijão Preto', document.getElementById('Feijão').value, 'preto.jpg', '6,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="salada.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Salada</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Salada').value = contador3('sub')">
+			  					<input type="text" name="Salada" id="Salada" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Salada').value = contador3('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Salada', document.getElementById('Salada').value, 'salada.jpg', '4,50€')"></form>
+			  		</div>
+			  	</div>
+		  	</acompanhamentos>
+		  	<acompanhamentos style="display: none;">  		
+		  	<div style="display: inline-flex; margin-left: 250px;">
+		  		<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="batata.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="font-family: arial; text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Batata Cozida</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Batata').value = contador4('sub')">
+		  					<input type="text" name="Batata" id="Batata" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Batata').value = contador4('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Batata Cozida', document.getElementById('Batata').value, 'batata.jpg', '3,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="batata_frita.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Batata Frita</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Frita').value = contador5('sub')">
+		  					<input type="text" name="Frita" id="Frita" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Frita').value = contador5('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Batata Frita', document.getElementById('Frita').value, 'batata_frita.jpg', '2,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="arroz_branco.png" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Arroz Cozido</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Cozido').value = contador6('sub')">
+		  					<input type="text" name="Cozido" id="Cozido" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Cozido').value = contador6('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Arroz Cozido', document.getElementById('Cozido').value, 'arroz_branco.png', '3,50€')"></form>
+		  		</div>
+		  	</div>
+		  	</acompanhamentos>
+
+
+
+
+			<vegetais style="display: none;">
+			  	<div style="display: inline-flex; margin-left: 250px;">
+					<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="broculos.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Broculos Cozidos</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Broculos').value = contador1('sub')">
+			  					<input type="text" name="Broculos" id="Broculos" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Broculos').value = contador1('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Broculos Cozidos', document.getElementById('Broculos').value, 'broculos.jpg', '2,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="lombardo.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Couve Lombardo</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Lombardo').value = contador2('sub')">
+			  					<input type="text" name="Lombardo" id="Lombardo" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Lombardo').value = contador2('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Couve Lombardo', document.getElementById('Lombardo').value, 'lombardo.jpg', '3,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="flor.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Couve Flor</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Flor').value = contador3('sub')">
+			  					<input type="text" name="Flor" id="Flor" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Flor').value = contador3('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Couve Flor', document.getElementById('Flor').value, 'flor.jpg', '4,50€')"></form>
+			  		</div>
+			  	</div>
+		  	</vegetais>
+		  	<vegetais style="display: none;">  		
+		  	<div style="display: inline-flex; margin-left: 250px;">
+		  		<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="pimentos.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Pimentos</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Pimentos').value = contador4('sub')">
+		  					<input type="text" name="Pimentos" id="Pimentos" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Pimentos').value = contador4('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Pimentos', document.getElementById('Pimentos').value, 'pimentos.jpg', '3,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="cenoura.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Cenoura Cozida</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Cenoura').value = contador5('sub')">
+		  					<input type="text" name="Cenoura" id="Cenoura" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Cenoura').value = contador5('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Cenoura Cozida', document.getElementById('Cenoura').value, 'cenoura.jpg', '2,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="esparregado.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Esparregado</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Esparregado').value = contador6('sub')">
+		  					<input type="text" name="Esparregado" id="Esparregado" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Esparregado').value = contador6('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Esparregado', document.getElementById('Esparregado').value, 'esparregado.jpg', '4,50€')"></form>
+		  		</div>
+		  	</div>
+		  	</vegetais>
+
+
+
+
+
+
+			<molhos style="display: none;">
+			  	<div style="display: inline-flex; margin-left: 250px;">
+					<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="mostarda.png" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Mostarda</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('Mostarda').value = contador1('sub')">
+			  					<input type="text" name="Mostarda" id="Mostarda" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('Mostarda').value = contador1('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Mostarda', document.getElementById('Mostarda').value, 'mostarda.png', '1,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="ketchup.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Ketchup</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('ketchup').value = contador2('sub')">
+			  					<input type="text" name="ketchup" id="ketchup" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('ketchup').value = contador2('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Ketchup', document.getElementById('ketchup').value, 'ketchup.jpg', '1,50€')"></form>
+			  		</div>
+			  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+			  			<div>
+			  				<img src="BBQ.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+			  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Molho BBQ</p>
+			  			</div>
+			  			<div style="display: inline-flex;">
+			  				<form style="margin-left: 70px;">
+			  					<input type="button" name="remove" value="-" onclick="document.getElementById('BBQ').value = contador3('sub')">
+			  					<input type="text" name="BBQ" id="BBQ" style="width: 90px; text-align: center;" readonly="true">
+			  					<input type="button" name="add" value="+" onclick="document.getElementById('BBQ').value = contador3('soma')">
+			  				</form>
+			  			</div>
+			  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Molho BBQ', document.getElementById('BBQ').value, 'BBQ.jpg', '2,00€')"></form>
+			  		</div>
+			  	</div>
+		  	</molhos>
+		  	<molhos style="display: none;">  		
+		  	<div style="display: inline-flex; margin-left: 250px;">
+		  		<div style="margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="caril.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Molho Caril</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Caril').value = contador4('sub')">
+		  					<input type="text" name="Caril" id="Caril" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Caril').value = contador4('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Molho Caril', document.getElementById('Caril').value, 'caril.jpg', '2,00€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="alho.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Molho de Alho</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Alho').value = contador5('sub')">
+		  					<input type="text" name="Alho" id="Alho" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Alho').value = contador5('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Molho de Alho', document.getElementById('Alho').value, 'alho.jpg', '1,50€')"></form>
+		  		</div>
+		  		<div style="margin-left: 100px; margin-top: 90px; border-style: solid; width: 300px; height: 210px; background-color: white;">
+		  			<div>
+		  				<img src="maionese.jpg" style="width: 150px; height: 110px; margin-left: 70px;">
+		  				<p style="text-align: center; height: 20px; background-image: url(continha.png); background-size: 100% 100%;">Maionese</p>
+		  			</div>
+		  			<div style="display: inline-flex;">
+		  				<form style="margin-left: 70px;">
+		  					<input type="button" name="remove" value="-" onclick="document.getElementById('Maionese').value = contador6('sub')">
+		  					<input type="text" name="Maionese" id="Maionese" style="width: 90px; text-align: center;" readonly="true">
+		  					<input type="button" name="add" value="+" onclick="document.getElementById('Maionese').value = contador6('soma')">
+		  				</form>
+		  			</div>
+		  			<form><input type="button" name="status" value="Confirmar" style="margin-left: 104px;" onclick="add_conta('Maionese', document.getElementById('Maionese').value, 'maionese.jpg', '1,00€')"></form>
+		  		</div>
+		  	</div>
+		  	</molhos>
+
+
+
+
+
+
+
+			<boxy style="display: none;">
+				<div id="confirmação" style="border-color: white; border-style: dotted; border-width: 3px; width: 400px; margin-top: 270px; margin-left: 550px; background-image: url(continha.png);">
+					<p style="text-align: center; font-family: arial;">Tem a Certeza Que Pretende Mandar Vir Este Prato ?</p>
+					<div style="display: inline-flex; margin-left: 90px; margin-bottom: 25px;">
+						<form>
+		  					<des9><input type="button" name="Sim" value="Sim" id="sim" style="margin-top: 10px; margin-left: 7px;"></des9>
+			  			</form>
+			  			<form>
+			  				<des10><input type="button" name="Não" value="Não" id="não" style="margin-top: 10px; margin-left: 7px;"></des10>
+			  			</form>
+					</div>
+				</div>
+		  	</boxy>
+
+
+			<boxo style="display: none;">
+				<div id="confirmação" style="border-color: white; border-style: dotted; border-width: 3px; width: 400px; margin-top: 270px; margin-left: 550px; background-image: url(continha.png);">
+					<p style="text-align: center; font-family: arial;">Tem a Certeza que Pretende Eliminar Este Prato ?</p>
+					<div style="display: inline-flex; margin-left: 90px; margin-bottom: 25px;">
+						<form>
+		  					<des11><input type="button" name="Sim" value="Sim" id="sim" style="margin-top: 10px; margin-left: 7px;"></des11>
+			  			</form>
+			  			<form>
+			  				<des12><input type="button" name="Não" value="Não" id="não" style="margin-top: 10px; margin-left: 7px;"></des12>
+			  			</form>
+					</div>
+				</div>
+		  	</boxo>
+
+
+
+
+
+
+			<prato style="display: none;">
+				<conta style="display: block; overflow: auto;">
+					<div style="width: 1200px; display: inline-flex; font-family: arial; border-style: solid; border-width: 3px; border-radius: 5%; font-size: 30px; background-image: url(continha.png);">
+						<p style="margin-left: 230px;">Nome</p>
+						<p style="margin-left: 240px;">Quantidade</p>
+						<p style="margin-left: 240px;">Preço</p>
+					</div>
+					
+				</conta>
+			</prato>
+
+	  	</div>
+	  	</div>
+</body>
+</html>

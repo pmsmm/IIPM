@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Range Rover Evoque</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		(function() {
+		   'use strict';
+		   var i,c;
+		function init(){ 
+		   i=document.getElementById('keyboard').getElementsByTagName('input');
+		for(c=0;c<i.length;c++) {
+		if(i[c].type==='button') {
+		   i[c].addEventListener('onclick',makeClickHandler(c));
+		   }
+		  }
+
+		document.getElementById('clear').onclick=function() {
+		   document.getElementById('text').value='';
+		  }
+		 }
+
+		function makeClickHandler(c) {
+		   i[c].onclick=function() {
+		   document.getElementById('text').value+=this.value.toLowerCase();
+		  };
+		 }
+
+		   window.addEventListener?
+		   window.addEventListener('load',init,false):
+		   window.attachEvent('onload',init);
+		})();
+
+		$(document).ready(function(){
+    		$("des9").click(function(arg){
+    			if (document.getElementById('text').value.length === 0) {
+    				alert("Destino Não Pode Ser Vazio!");
+    				return;
+    			}
+    			if (document.cookie === "NaN" || document.cookie === "" || document.cookie === null || !document.cookie) {
+    				var temp = document.getElementById('Preço').value;
+    				document.cookie = temp.toString() + ";expires=Thu, 18 Dec 2020 12:00:00 UTC; path=/";
+    				window.location.href="http://web.tecnico.ulisboa.pt/~ist425918/IIPM/Projeto_de_IIPM/comeISTo.Drive/temp.html";
+    			}
+    			else{
+    				var temp = parseInt(document.cookie) + document.getElementById('Preço').value;
+	    			document.cookie = document.getElementById('Preço').value.toString() + ";path=/";
+	    			window.location.href="http://web.tecnico.ulisboa.pt/~ist425918/IIPM/Projeto_de_IIPM/comeISTo.Drive/temp.html";
+    			}
+    		});
+		});
+	</script>
+</head>
+<body style="font-family: arial;">
+	<div id="content">
+		<a href="javascript:history.back()"><img src="back.png"></a>
+	</div>
+	<h1 id="title" style="color: white; font-family: arial; background: no-repeat url(title.jpg) 200px;">Range Rover Evoque</h1>
+	<div id="main">
+		<p id="texto">Aproveite o conforto e imponência da nossa mais luxuosa carrinha, o Range Rover Evoque, com uma capacidade excelente para 4 pessoas
+		e uma mala bastante espasoça para levar todos os pertences que trouxer do restaurante para onde quiser. Com um preço base de 50€ este veículo garante que chegará a casa em
+		estilo e conforto.</p>
+		<img src="bmw.png" id="carro">		
+	</div>
+	<form>
+		Rua de Destino: <input type="text" name="rua" id="text" readonly="readonly" onclick="document.getElementById('keyboard').style.display= 'block';"> <input type="button" value="Enter" onclick="alert('Confirme o seu destino:\n' + document.getElementById('text').value); document.getElementById('keyboard').style.display= 'none'; document.getElementById('Preço').value= 30 + Math.floor((Math.random() * 100) + 1)"><br>
+		Preço Total: <input type="text" name="preco" id="Preço" readonly="readonly">€
+	<div id="keyboard" style="display: none;">
+	
+	<div>
+	<input type="button" value="0">
+	<input type="button" value="1">
+	<input type="button" value="2">
+	<input type="button" value="3">
+	<input type="button" value="4">
+	<input type="button" value="5">
+	<input type="button" value="6">
+	<input type="button" value="7">
+	<input type="button" value="8">
+	<input type="button" value="9">
+	<input type="button" value="-">
+	<input type="button" value=".">
+	</div>
+	<div>
+	 <input type="button" value="Q">
+	 <input type="button" value="W">
+	 <input type="button" value="E">
+	 <input type="button" value="R">
+	 <input type="button" value="T">
+	 <input type="button" value="Y">
+	 <input type="button" value="U">
+	 <input type="button" value="I">
+	 <input type="button" value="O">
+	 <input type="button" value="P">
+	</div><div>
+	 <input type="button" value="A">
+	 <input type="button" value="S">
+	 <input type="button" value="D">
+	 <input type="button" value="F">
+	 <input type="button" value="G">
+	 <input type="button" value="H">
+	 <input type="button" value="J">
+	 <input type="button" value="K">
+	 <input type="button" value="L">
+	</div><div>
+	 <input type="button" value="Z">
+	 <input type="button" value="X">
+	 <input type="button" value="C">
+	 <input type="button" value="V">
+	 <input type="button" value="B">
+	 <input type="button" value="N">
+	 <input type="button" value="M">
+	</div><div>
+	 <input id="space" type="button" value=" ">
+	 <input id="clear" type="reset" value="clear">
+	</div><div>
+	</div>
+	</div><!-- end #keyboard -->
+
+</form>
+<form>
+	<des9><input type="button" name="alugar" value="Alugar" id="alugar" style="margin-top: 10px; font-size: 20px;"></des9>
+</form>
+</body>
+</html>

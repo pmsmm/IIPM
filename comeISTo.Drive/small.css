@@ -1,0 +1,33 @@
+#info{
+	text-align: center;
+	margin-top: 400px;
+	margin-left: 300px;
+}
+
+#imagem{
+	width: 5%;
+	margin-top: 360px;
+	margin-left: 20px;
+}
+
+#home{
+	width: 460px;
+	height: 60px;
+	margin-top: 150px;
+	margin-left: 700px;
+}
+
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 145%;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}

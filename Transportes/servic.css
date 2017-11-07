@@ -1,0 +1,86 @@
+#carro{
+	width:2000px;
+	margin: auto;
+}
+
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 135%;
+}
+
+#header{
+  background: url(title.jpg) center no-repeat;
+  width: 30%;
+  height: 30%;
+  margin: 0 auto;
+ }
+
+#headerContent{
+	margin: 0px auto;
+	max-width: 1250px;
+}
+
+#titulos{
+	color: white;
+}
+
+#ComeISToDrive{
+	width: 400px;
+	height: 250px;
+}
+
+#BUS{
+	width: 400px;
+	height: 250px;
+}
+
+#PARK{
+	width: 400px;
+	height: 250px;
+}
+
+#right{
+	text-align: right;
+}
+
+#content {
+    position: relative;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+}
+
+#taxi{
+	width: 400px;
+	height: 250px;
+}	
+
+#train{
+	width: 400px;
+	height: 250px;
+}
+
+#uber{
+	width: 400px;
+	height: 250px;}
+
+#block{
+	display: inline-block;
+	text-align: center;
+	margin-left: 190px;
+	margin-top: 70px;
+}
+
+#borda{
+	border-style: double;
+	border-width: 10px;
+	border-radius: 5px;
+	margin-top: 70px;
+	padding-bottom: 90px;
+}

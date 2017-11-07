@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Sua Conta</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+	function muda() {
+			var x = document.cookie;
+			alert(x);
+			document.getElementById("prep").value=x;	
+			console.log(x);
+	}
+	window.onload=muda;
+	</script>
+
+</head>
+<body>
+	<div id="content">
+    	<a href="javascript:history.back()"><img src="back.png"></a>
+  	</div>
+  	<div style="border-style: solid; background-image: url(continha.png); width: 700px; height: 250px; margin-left: 620px; margin-top: 300px; border-radius: 10%;">
+  		<h1 style="margin-left: 200px; margin-top: 80px;">Preço Total a Pagar:<br><input type="text" name="preco" id="prep" style="margin-left: 65px; height: 25px; text-align: center;" readonly="true">€</h1>
+  	</div>
+</body>
+</html>

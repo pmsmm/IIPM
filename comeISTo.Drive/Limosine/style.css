@@ -1,0 +1,95 @@
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 110% 145%;
+	font-family: arial;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}
+
+#title{
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#main{
+	display: inline-flex;
+	border: solid;
+	margin-top: 100px;
+}
+
+#texto{
+	font-size: 25px;
+	display: inline-block;
+	margin-left: 50px;
+	padding-right: 10px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 90px;
+	background-color: white;
+}
+
+#carro{
+	width: 35%;
+	display: inline-block;
+	margin-right: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#text{
+	width: 400px;
+	height: 20px;
+	margin-top: 50px;
+}
+
+#keyboard {
+    display:inline-block;
+    padding:10px 15px;
+    border:1px solid #009;
+    border-radius:10px;
+    background-color:#87cdf9;
+    text-align:center;
+    box-shadow:4px 4px 4px #999;
+ }
+#keyboard div {
+    margin:5px 0;
+ }
+#space {
+    width:184px;
+ }
+#keyboard label {
+    margin-top:20px;
+    font-family:serif;
+    text-decoration:underline;
+ }
+#keyboard input {
+    box-shadow:2px 2px 2px #666;
+ }
+#keyboard input[type="text"] {
+    margin-top:20px;
+    border:1px solid #666;
+    border-radius:4px;
+    box-shadow:none;
+ }
+
+ #Preço{
+ 	margin-top: 20px;
+ 	margin-left: 22px;
+ }
+
+ #alugar{
+ 	margin-top: 75px;
+ 	margin-left: 725px;
+ 	width: 500px;
+ 	height: 40px;
+ }

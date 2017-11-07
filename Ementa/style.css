@@ -1,0 +1,106 @@
+body {
+	background-image: url("backg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 140%;
+}
+
+#cab{
+  background-image: url(title.jpg);
+  width: 29%;
+  margin: auto;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}
+
+#botão{
+	width: 170px;
+	height: 80px;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 2px;
+	background-color: #4682B4;	
+}
+
+#botão_confirmar{
+	width: 170px;
+	height: 80px;
+	background-color: #4CAF50;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;
+}
+
+#botão_limpar{
+	width: 170px;
+	height: 80px;
+	background-color: #DC143C;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;	
+}
+
+#caixa{
+	border-style: double;
+	border-color: black;
+	border-width: 5px;
+	width: 1600px;
+	height: 700px;
+	margin-top: 50px;
+}
+
+elem{
+	width: 1200px;
+	display: inline-flex;
+	font-family: arial;
+	background-image: url(continha.png);
+	background-repeat: no-repeat;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 5%;
+}
+
+elem img{
+	width: 100px;
+	height: 100px;
+	border-radius: 15px;
+}
+
+elem input{
+	padding-left: 50px;
+	font-family: arial;
+	font-size: 20px;
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 30px;
+	height: 30px;
+}
+
+conta{
+	width: 1220px;
+	height: 700px;
+}
+
+#sim{
+	border-radius: 20px;
+	width: 100px;
+	height: 30px;
+	background-color: green;
+	border-style: solid;
+	border-color: black;
+}
+
+#não{
+	border-radius: 20px;
+	width: 100px;
+	height: 30px;
+	background-color: red;
+	border-style: solid;
+	border-color: black;	
+}

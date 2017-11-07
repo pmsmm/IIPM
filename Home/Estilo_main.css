@@ -1,0 +1,101 @@
+#rodape{
+	position: absolute;
+	text-align: center;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 9px;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 50px;
+}
+
+body {
+	background-image: url("back.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 123%;
+}
+
+#ementa1{
+	display: block;
+	margin: auto;
+	height: 280px;
+	width: 280px;
+}
+
+#ementa2{
+	display: block;
+	margin: auto;
+	height: 280px;
+	width: 280px;
+	padding-top: 30px;
+}
+
+#ementa3{
+	display: block;
+	margin: auto;
+	height: 280px;
+	width: 280px;
+}
+
+#ementa4{
+	display: block;
+	margin: auto;
+	height: 280px;
+	width: 280px;
+}
+
+#vertical{
+	padding-top: 10px;
+}
+
+#lege{
+	margin-left: 40px;
+	font-family: arial;
+	color: white;
+	font-size: 26px;
+}
+
+#lege_spec{
+	margin-left: 40px;
+	font-family: arial;
+	color: white;
+	font-size: 26px;	
+}
+
+#ALINHA{
+	text-align: center;
+	display: inline-block;
+	padding-right: 80px;
+}
+
+#CENTRO{
+	text-align: center;
+	border-style: solid;
+	border-width: 5px;	
+	border-radius: 50px;
+	width: 95%;
+	margin: auto;
+}
+
+#conta{
+	margin-bottom: 170px;
+}
+
+#twitter{
+	margin-left: 40px;
+}
+
+#instagram{
+	margin-left: 20px;
+}
+
+#facebook{
+	margin-left: 10px;
+}
+
+#snapchat{
+	margin-left: 30px;
+}
